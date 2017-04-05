@@ -39,3 +39,12 @@ Hotkey based editing is king. Cutting a podcast should very rarely involve the m
 
 Things to keep in mind for future extensibility:
 Sensible defaults are good, but keep them open to the user. Try to implement many, if not most, settings as text files that can be shared directly. This inlcudes keymaps, color shemes and preferences.
+
+
+Steps:
+- Split MainWindow into a Menu Bar on top, an assets/project bar on the right and a large main component
+- Import and play a wav
+- Place a wav in the main component
+- Place multiple wavs, show porportional length
+- Enable changing a files starting position
+- Save track mixdown

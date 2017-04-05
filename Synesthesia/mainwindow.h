@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMenu>
+#include <QKeySequence>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +19,17 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void createActions();
+    void createMenus();
+
+    QMenu *fileMenu;
+    QMenu *helpMenu;
+    QAction *closeAct;
+    QAction *aboutAct;
+
+private slots:
+    void close();
+    void about();
 };
 
 #endif // MAINWINDOW_H
