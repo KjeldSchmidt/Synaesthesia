@@ -8,7 +8,7 @@ Synaesthesia is a Sound Editor. It is _not_ a digital audio work station. Think 
 
 Synaesthesia is named such because it incorporates interface ideas from graphics applications such as photoshop, especially the system of adjustmend layers and masks.
 
-Synaesthesia shall allow fine-grained control over non-destructive edits and adjustments. That means that most edits shall be reversible without unwinding a history (and losing later edits). In this way, it will be closer to effects in Premiere Pro than Audition. All effects and asjusments should also be fully fadeable (dynamic mix of wet and dry sound) and aplied to arbitrary subsections of a clip (without splitting the clip).
+Synaesthesia shall allow fine-grained control over non-destructive edits and adjustments. That means that most edits shall be reversible without unwinding a history (and losing later edits). In this way, it will be closer to effects in Premiere Pro than Audition. All effects and asjusments should also be fully fadeable (dynamic mix of wet and dry sound) and aplied to arbitrary subsections of a clip (without splitting the clip). Since no changes are ever truly 'permanent', everything should constantly save automatically, in the ideal case (like Sublime Text).
 
 The very first version shall support the following:
 
@@ -42,9 +42,13 @@ Sensible defaults are good, but keep them open to the user. Try to implement man
 
 
 Steps:
-- Split MainWindow into a Menu Bar on top, an assets/project bar on the right and a large main component
+x Split MainWindow into a Menu Bar on top, an assets/project bar on the right and a large main component 
+- StyleSheet
 - Import and play a wav
 - Place a wav in the main component
+- Show approximate waveform
 - Place multiple wavs, show porportional length
 - Enable changing a files starting position
+- Implement zooming
 - Save track mixdown
+- Implement splitting clips

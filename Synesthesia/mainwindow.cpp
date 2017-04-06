@@ -3,31 +3,44 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
-MainWindow::MainWindow( QWidget *parent ) :
-	QMainWindow( parent ),
-	ui( new Ui::MainWindow )
+MainWindow::MainWindow( QWidget *parent ) :	QMainWindow( parent ), ui( new Ui::MainWindow )
 {
 	ui->setupUi( this );
-	QWidget *widget = new QWidget;
-	setCentralWidget( widget );
+	QWidget *mainWidget = new QWidget;
+	this->setCentralWidget( mainWidget );
 
-	QWidget *topFiller = new QWidget;
-	topFiller->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+	QWidget *toolBar = new QWidget;
+	toolBar->setMinimumHeight( 30 );
+	toolBar->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Minimum );
+	toolBar->setStyleSheet("background-color: green");
 
-	QLabel *infoLabel = new QLabel( tr("<i>Choose a menu option") );
-	infoLabel->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
-	infoLabel->setAlignment( Qt::AlignCenter );
+	QWidget *projectOverviewPanel = new QWidget;
+	projectOverviewPanel->setMinimumWidth( 100 );
+	projectOverviewPanel->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Expanding );
+	projectOverviewPanel->setStyleSheet("background-color: red");
+
+	QWidget *mainEditArea = new QWidget;
+	mainEditArea->setMinimumSize( QSize( 300, 200 ) );
+	mainEditArea->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+	mainEditArea->setStyleSheet("background-color: blue");
+
+	QSplitter *editArea = new QSplitter( this );
+	editArea->addWidget( projectOverviewPanel );
+	editArea->addWidget( mainEditArea );
+	editArea->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+	editArea->setChildrenCollapsible( false );
 
 	QVBoxLayout *layout = new QVBoxLayout;
 	layout->setMargin( 5 );
-	layout->addWidget( topFiller );
-	layout->addWidget(infoLabel);
-	widget->setLayout(layout);
+	layout->addWidget( toolBar );
+	layout->addWidget( editArea );
+	mainWidget->setLayout( layout );
 
 	createActions();
 	createMenus();
 
 	statusBar()->showMessage( tr("Status") );
+	this->setWindowState( Qt::WindowMaximized );
 }
 
 MainWindow::~MainWindow()
@@ -56,7 +69,8 @@ void MainWindow::createMenus() {
 }
 
 void MainWindow::close() {
-
+	//TODO: Check file status
+	QCoreApplication::quit();
 }
 
 void MainWindow::about() {

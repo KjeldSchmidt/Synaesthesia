@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMenu>
 #include <QKeySequence>
+#include <QSplitter>
 
 namespace Ui {
 class MainWindow;
@@ -11,25 +12,25 @@ class MainWindow;
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+	explicit MainWindow(QWidget *parent = 0);
+	~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
-    void createActions();
-    void createMenus();
+	Ui::MainWindow *ui;
+	void createActions();
+	void createMenus();
 
-    QMenu *fileMenu;
-    QMenu *helpMenu;
-    QAction *closeAct;
-    QAction *aboutAct;
+	QMenu *fileMenu;
+	QMenu *helpMenu;
+	QAction *closeAct;
+	QAction *aboutAct;
 
 private slots:
-    void close();
-    void about();
+	void close();
+	void about();
 };
 
 #endif // MAINWINDOW_H
