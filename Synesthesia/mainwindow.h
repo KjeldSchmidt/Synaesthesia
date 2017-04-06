@@ -5,6 +5,7 @@
 #include <QMenu>
 #include <QKeySequence>
 #include <QSplitter>
+#include <QFile>
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +21,7 @@ public:
 
 private:
 	Ui::MainWindow *ui;
+	void setStyleSheet();
 	void createActions();
 	void createMenus();
 

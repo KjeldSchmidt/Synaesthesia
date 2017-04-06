@@ -6,6 +6,7 @@
 MainWindow::MainWindow( QWidget *parent ) :	QMainWindow( parent ), ui( new Ui::MainWindow )
 {
 	ui->setupUi( this );
+	setStyleSheet();
 	QWidget *mainWidget = new QWidget;
 	this->setCentralWidget( mainWidget );
 
@@ -46,6 +47,13 @@ MainWindow::MainWindow( QWidget *parent ) :	QMainWindow( parent ), ui( new Ui::M
 MainWindow::~MainWindow()
 {
 	delete ui;
+}
+
+void MainWindow::setStyleSheet() {
+	QFile stylesheet( ":/style.qss" );
+	stylesheet.open( QFile::ReadOnly );
+	QString stylesheetText = stylesheet.readAll();
+	qApp->setStyleSheet( stylesheetText );
 }
 
 void MainWindow::createActions() {

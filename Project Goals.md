@@ -43,7 +43,7 @@ Sensible defaults are good, but keep them open to the user. Try to implement man
 
 Steps:
 x Split MainWindow into a Menu Bar on top, an assets/project bar on the right and a large main component 
-- StyleSheet
+x StyleSheet
 - Import and play a wav
 - Place a wav in the main component
 - Show approximate waveform
